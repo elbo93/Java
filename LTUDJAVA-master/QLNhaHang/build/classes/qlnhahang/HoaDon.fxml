@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="14.0" prefHeight="101.0" prefWidth="677.0">
+         <children>
+            <Label layoutX="71.0" layoutY="36.0" text="TraCuuHoaDon" />
+            <TextField layoutX="204.0" layoutY="32.0" prefHeight="25.0" prefWidth="319.0" />
+            <Label layoutX="258.0" layoutY="-1.0" prefHeight="17.0" prefWidth="135.0" text="Hoa Don" textFill="#0e1deb">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="4.0" layoutY="75.0" prefHeight="381.0" prefWidth="406.0">
+         <children>
+            <TableView prefHeight="381.0" prefWidth="530.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="So Hoa Don" />
+                <TableColumn prefWidth="75.0" text="TGLAp" />
+                  <TableColumn prefWidth="75.0" text="MSBan" />
+                  <TableColumn prefWidth="75.0" text="SoKhach" />
+                  <TableColumn prefWidth="75.0" text="NguoiLap" />
+                  <TableColumn prefWidth="75.0" text="TiepTan" />
+                  <TableColumn prefWidth="75.0" text="Tong Tien" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <TextArea layoutX="532.0" layoutY="123.0" prefHeight="326.0" prefWidth="213.0" />
+      <Label layoutX="611.0" layoutY="89.0" text="Chi Tiet Hoa Don" />
+      <Button layoutX="168.0" layoutY="471.0" mnemonicParsing="false" text="In Hoa Don" />
+      <Button layoutX="480.0" layoutY="471.0" mnemonicParsing="false" text="Xoa Hoa Don" />
+   </children>
+</AnchorPane>

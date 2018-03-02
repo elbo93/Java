@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="32.0" layoutY="23.0" text="Chon Ngay" />
+            <ComboBox layoutX="32.0" layoutY="61.0" prefWidth="150.0" />
+            <Button layoutX="36.0" layoutY="119.0" mnemonicParsing="false" text="TKNgay" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="200.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="51.0" layoutY="20.0" text="Chon Thang" />
+            <ComboBox layoutX="25.0" layoutY="61.0" prefWidth="150.0" />
+            <Button layoutX="32.0" layoutY="126.0" mnemonicParsing="false" text="TKThang" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="400.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="63.0" layoutY="18.0" text="Chon Nam" />
+            <ComboBox layoutX="36.0" layoutY="60.0" prefWidth="150.0" />
+            <Button layoutX="40.0" layoutY="125.0" mnemonicParsing="false" text="TKNAM" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="186.0" prefHeight="200.0" prefWidth="618.0">
+         <children>
+            <Label layoutX="52.0" layoutY="40.0" text="So Thuc Don Ban Duoc" />
+            <Label layoutX="52.0" layoutY="92.0" text="Thuc Uong Nhieu Nhat" />
+            <Label layoutX="52.0" layoutY="131.0" text="Thong Khach Den :" />
+            <Label layoutX="52.0" layoutY="169.0" text="Tong Doanh Thu" />
+            <TextField layoutX="210.0" layoutY="36.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField layoutX="210.0" layoutY="88.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField layoutX="210.0" layoutY="127.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField layoutX="210.0" layoutY="165.0" prefHeight="25.0" prefWidth="264.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

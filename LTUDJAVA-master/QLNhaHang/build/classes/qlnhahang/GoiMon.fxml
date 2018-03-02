@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="299.0" layoutY="26.0" text="Goi Mon" textFill="#180ed0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="36.0" layoutY="106.0" prefHeight="385.0" prefWidth="234.0">
+         <children>
+            <ListView prefHeight="379.0" prefWidth="234.0" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="36.0" layoutY="80.0" text="Chon Loai Thuc Don" />
+      <ComboBox layoutX="153.0" layoutY="76.0" prefWidth="150.0" />
+      <ListView layoutX="494.0" layoutY="109.0" prefHeight="379.0" prefWidth="234.0" />
+      <Label layoutX="289.0" layoutY="123.0" text="Chon Ban" />
+      <Label layoutX="285.0" layoutY="177.0" text="So Khach" />
+      <Label layoutX="285.0" layoutY="232.0" text="Gia Tham Khao" />
+      <Label layoutX="285.0" layoutY="290.0" text="Khuyen Mai" />
+      <Label layoutX="285.0" layoutY="341.0" text="Don Gia" />
+      <Label layoutX="285.0" layoutY="379.0" text="So Luong" />
+      <Button defaultButton="true" layoutX="291.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" text="=&gt;" />
+      <Button defaultButton="true" layoutX="379.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" text="&lt;=" />
+      <Button defaultButton="true" layoutX="342.0" layoutY="463.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" text="Ok" />
+      <TextField layoutX="384.0" layoutY="119.0" prefHeight="25.0" prefWidth="96.0" />
+      <TextField layoutX="386.0" layoutY="173.0" prefHeight="25.0" prefWidth="96.0" />
+      <TextField layoutX="386.0" layoutY="228.0" prefHeight="25.0" prefWidth="96.0" />
+      <TextField layoutX="386.0" layoutY="286.0" prefHeight="25.0" prefWidth="96.0" />
+      <TextField layoutX="387.0" layoutY="337.0" prefHeight="25.0" prefWidth="96.0" />
+      <TextField layoutX="386.0" layoutY="375.0" prefHeight="25.0" prefWidth="96.0" />
+      <Button defaultButton="true" layoutX="500.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Xoa Thuc Don " />
+      <Button defaultButton="true" layoutX="615.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Xoa DS " />
+   </children>
+</AnchorPane>

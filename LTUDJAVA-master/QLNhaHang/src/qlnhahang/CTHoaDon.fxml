@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="444.0" prefWidth="418.0">
+         <children>
+            <Label layoutX="33.0" layoutY="47.0" text="Chon Ban Can LAp" />
+            <ComboBox layoutX="176.0" layoutY="43.0" prefWidth="150.0" />
+            <TableView layoutX="14.0" layoutY="97.0" prefHeight="325.0" prefWidth="357.0">
+              <columns>
+                <TableColumn prefWidth="90.0" text="Ten Thuc Don" />
+                <TableColumn prefWidth="142.0" text="Don Gia" />
+                  <TableColumn prefWidth="124.0" text="So Luong" />
+              </columns>
+            </TableView>
+            <Label layoutX="123.0" layoutY="-7.0" prefHeight="43.0" prefWidth="286.0" text="Chi Tiet Hoa Don">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="408.0" layoutY="36.0" prefHeight="200.0" prefWidth="276.0">
+         <children>
+            <Label layoutX="53.0" layoutY="14.0" prefHeight="26.0" prefWidth="162.0" text="Thong tin hoa don">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="-5.0" layoutY="60.0" text="ngay lap hoa don" />
+            <Label layoutY="110.0" text="Chon nhan vien" />
+            <ComboBox layoutX="125.0" layoutY="106.0" prefHeight="25.0" prefWidth="99.0" />
+            <DatePicker layoutX="125.0" layoutY="56.0" prefHeight="25.0" prefWidth="99.0" />
+            <Button layoutY="153.0" mnemonicParsing="false" text="Tinh tien" />
+            <TextField layoutX="128.0" layoutY="153.0" prefHeight="25.0" prefWidth="116.0" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="446.0" layoutY="305.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="93.0" text="Lap Hoa Don" />
+      <Button layoutX="564.0" layoutY="306.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="93.0" text="Huy Thao Tac" />
+   </children>
+</AnchorPane>
