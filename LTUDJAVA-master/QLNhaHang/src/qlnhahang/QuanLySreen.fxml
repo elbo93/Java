@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="homePane" prefHeight="800.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.QuanLySreenController">
+    <stylesheets>
+        <URL value="@quanlysreen.css" />
+    </stylesheets>
+   <children>
+      <Pane fx:id="paneleft" layoutX="7.0" layoutY="-2.0" prefHeight="800.0" prefWidth="176.0" style="-fx-border-color: black;">
+         <children>
+            <VBox layoutY="126.0" prefHeight="672.0" prefWidth="176.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" opacity="0.98" prefHeight="69.0" prefWidth="176.0" style="-fx-border-color: black;">
+                     <children>
+                        <ImageView fitHeight="47.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/tải%20xuống%20(3).png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#eae300" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Nhật" textAlignment="CENTER" wrappingWidth="97.13671875">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnHoaDon" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#btnMenuAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Menu Món Ăn" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="7.0" layoutY="14.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnHoaDon2" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Chi Tiết Món Ăn" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutY="14.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/ctmonan.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnHoaDon3" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Hóa Đơn" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="7.0" layoutY="14.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/bild.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnQLHoaDon" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnQLHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Quản Lý Hóa Đơn" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutY="14.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/tải%20xuống%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnGoiMon" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnGoiMonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Gọi Món" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="47.0" fitWidth="47.0" layoutY="10.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/oder.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnBaoCao" defaultButton="true" mnemonicParsing="false" onAction="#btnBaoCaoAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Báo Cáo" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="14.0" layoutY="14.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/report.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnThongKe" defaultButton="true" mnemonicParsing="false" onAction="#btnThongKeAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Thống Kê" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="13.0" layoutY="15.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/thongke.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="67.0" prefWidth="176.0">
+                     <children>
+                        <Button fx:id="btnHoaDon8" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Thoát" textFill="#e9ecee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="13.0" layoutY="15.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/qiut.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="67.0" prefWidth="176.0">
+               <children>
+                  <Button fx:id="btnHoaDon1" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" text="Hoa Don" textFill="#0a82d6" />
+                  <ImageView fitHeight="39.0" fitWidth="52.0" layoutX="13.0" layoutY="15.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/tải%20xuống%20(4).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="menumain" blendMode="SRC_ATOP" layoutX="183.0" layoutY="123.0" prefHeight="680.0" prefWidth="817.0" style="-fx-border-color: black;">
+         <children>
+            <Pane layoutX="211.0" layoutY="64.0" prefHeight="39.0" prefWidth="47.0" />
+         </children></Pane>
+      <Pane fx:id="panetop" layoutX="-1.0" prefHeight="123.0" prefWidth="1000.0" style="-fx-border-color: #0a82d6; -fx-background-color: #0dd4db;">
+         <children>
+            <Pane layoutX="8.0" layoutY="4.0" prefHeight="114.0" prefWidth="159.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="38.0" layoutY="15.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/images.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Text fill="#ebe7e7" layoutX="199.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NNT RESTAURANT" wrappingWidth="185.13671875">
+               <font>
+                  <Font name=".VnBook AntiquaH" size="26.0" />
+               </font>
+            </Text>
+            <Text fill="#fcf7f7" layoutX="458.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm Kiếm " textAlignment="CENTER" wrappingWidth="125.58203125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField layoutX="606.0" layoutY="49.0" prefHeight="39.0" prefWidth="359.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

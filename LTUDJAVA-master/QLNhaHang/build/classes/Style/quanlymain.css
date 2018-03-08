@@ -4,13 +4,13 @@
 
 .mainFxmlClass {
   
- 
+ -fx-background-color:white;
 }
 
 .hover_broder:hover {
     -fx-broder-color:#0fbcf9;
     -fx-border-width: 0px 0px 0px 2px;
-    -fx-background-color: #34e7e4e0;
+    -fx-background-color:  #0dd4db;
 }
 .active_brode:active {
     -fx-background-color: #34e7e4e0;
