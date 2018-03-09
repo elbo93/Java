@@ -25,7 +25,7 @@
                               <Image url="@../Image/tải%20xuống%20(3).png" />
                            </image>
                         </ImageView>
-                        <Text fill="#eae300" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Nhật" textAlignment="CENTER" wrappingWidth="97.13671875">
+                        <Text fill="#1c92ef" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Nhật" textAlignment="CENTER" wrappingWidth="97.13671875">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
@@ -34,7 +34,7 @@
                   </HBox>
                   <Pane prefHeight="67.0" prefWidth="176.0">
                      <children>
-                        <Button fx:id="btnHoaDon" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#btnMenuAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Menu Món Ăn" textFill="#e9ecee">
+                        <Button fx:id="btnNhanVien" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#btnNhanVienAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Nhân Viên" textFill="#e9ecee">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -48,7 +48,7 @@
                   </Pane>
                   <Pane prefHeight="67.0" prefWidth="176.0">
                      <children>
-                        <Button fx:id="btnHoaDon2" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Chi Tiết Món Ăn" textFill="#e9ecee">
+                        <Button fx:id="btnMenu" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnMenuAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Chi Tiết Món Ăn" textFill="#e9ecee">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -132,7 +132,7 @@
                   </Pane>
                   <Pane prefHeight="67.0" prefWidth="176.0">
                      <children>
-                        <Button fx:id="btnHoaDon8" defaultButton="true" mnemonicParsing="false" onAction="#btnHoaDonAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Thoát" textFill="#e9ecee">
+                        <Button fx:id="btnThoat" defaultButton="true" mnemonicParsing="false" onAction="#btnThoatAction" prefHeight="67.0" prefWidth="176.0" styleClass="hover_broder" stylesheets="@../Style/quanlymain.css" text="Thoát" textFill="#e9ecee">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -162,7 +162,7 @@
          <children>
             <Pane layoutX="211.0" layoutY="64.0" prefHeight="39.0" prefWidth="47.0" />
          </children></Pane>
-      <Pane fx:id="panetop" layoutX="-1.0" prefHeight="123.0" prefWidth="1000.0" style="-fx-border-color: #0a82d6; -fx-background-color: #0dd4db;">
+      <Pane fx:id="panetop" layoutX="-1.0" prefHeight="123.0" prefWidth="1000.0" style="-fx-border-color: #1c92ef; -fx-background-color: #1c92ef;">
          <children>
             <Pane layoutX="8.0" layoutY="4.0" prefHeight="114.0" prefWidth="159.0">
                <children>

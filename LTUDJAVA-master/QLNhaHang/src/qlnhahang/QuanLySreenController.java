@@ -8,6 +8,7 @@ package qlnhahang;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,27 +25,33 @@ import javafx.scene.layout.Pane;
  * @author Dell
  */
 public class QuanLySreenController implements Initializable {
-     @FXML
+    @FXML
     private Button btnHoaDon;
-      @FXML
+    @FXML
     private Pane menumain;
-      @FXML
+    @FXML
     private AnchorPane homePane;
-       @FXML
+    @FXML
     private Button btnQLHoaDon;
-         @FXML
+    @FXML
     private Button btnGoiMon;
-             @FXML
+    @FXML
     private Button btnBaoCao;
-              @FXML
+    @FXML
     private Button btnThongKe;
+    @FXML
+    private Button btnNhanVien;
+    @FXML
+    private Button btnMenu;
+    @FXML
+    private Button btnThoat;
     @FXML
     void btnHoaDonAction(ActionEvent event) throws IOException {
         this.createPage(homePane,"/qlnhahang/HoaDon.fxml");
     }
     @FXML
-    void btnMenuAction(ActionEvent event) throws IOException {
-       
+    void btnMenuAction(ActionEvent event) throws IOException{
+        this.createPage(homePane,"/qlnhahang/Menu.fxml");
     }
    @FXML
     void btnQLHoaDonAction(ActionEvent event) throws IOException {
@@ -61,6 +68,14 @@ public class QuanLySreenController implements Initializable {
       @FXML
     void btnThongKeAction(ActionEvent event) throws IOException {
   this.createPage(homePane,"/qlnhahang/Thong Ke.fxml");
+    }
+    @FXML
+    void btnNhanVienAction(ActionEvent event) throws IOException {
+         this.createPage(homePane,"/qlnhahang/NhanVien.fxml");
+    }
+   @FXML
+    void btnThoatAction(ActionEvent event) {
+        Platform.exit();
     }
 
     /**
