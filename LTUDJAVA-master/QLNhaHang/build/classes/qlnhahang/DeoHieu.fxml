@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="823.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="qlnhahang.DeoHieuController">
+   <children>
+      <Pane prefHeight="203.0" prefWidth="366.0" style="-fx-background-color: #a1d7e4;">
+         <children>
+            <Button defaultButton="true" layoutX="18.0" layoutY="151.0" mnemonicParsing="false" text="Tính Tiền ">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <TextField layoutX="134.0" layoutY="151.0" prefHeight="25.0" prefWidth="144.0" />
+            <ComboBox layoutX="133.0" layoutY="90.0" prefHeight="25.0" prefWidth="137.0" />
+            <Label layoutX="13.0" layoutY="94.0" text="Chọn Nhân Viên :">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="31.0" text="Ngày Lập Hóa Đơn :" textFill="#141414">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="128.0" layoutY="27.0" prefHeight="25.0" prefWidth="137.0" />
+         </children>
+      </Pane>
+      <Pane prefHeight="497.0" prefWidth="419.0">
+         <children>
+            <TableView layoutY="78.0" prefHeight="418.0" prefWidth="419.0">
+               <columns>
+                  <TableColumn prefWidth="90.0" text="Ten Thuc Don" />
+                  <TableColumn prefWidth="142.0" text="Don Gia" />
+                  <TableColumn prefWidth="124.0" text="So Luong" />
+               </columns>
+            </TableView>
+            <Label layoutX="6.0" layoutY="45.0" text="Chọn Bàn Cần Lập :">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="191.0" layoutY="41.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="823.0" style="-fx-background-color: #a1d7e4;" text="CHI TIẾT HÓA ĐƠN" textFill="#d1240f">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Button defaultButton="true" mnemonicParsing="false" prefHeight="85.0" prefWidth="110.0" text="Hủy Thao Tác">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button defaultButton="true" mnemonicParsing="false" prefHeight="85.0" prefWidth="93.0" text="Lập Hóa Đơn">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="823.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="btnLapHoaDon" defaultButton="true" layoutX="493.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnLapHoaDonAction" prefHeight="85.0" prefWidth="93.0" text="Lập Hóa Đơn">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button defaultButton="true" layoutX="623.0" layoutY="417.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="110.0" text="Hủy Thao Tác">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="114.0" prefWidth="823.0" style="-fx-background-color: #a1d7e4;" text="CHI TIẾT HÓA ĐƠN" textFill="#d1240f">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Pane layoutX="14.0" layoutY="85.0" prefHeight="497.0" prefWidth="419.0">
+               <children>
+                  <TableView layoutY="78.0" prefHeight="418.0" prefWidth="419.0">
+                     <columns>
+                        <TableColumn prefWidth="90.0" text="Ten Thuc Don" />
+                        <TableColumn prefWidth="142.0" text="Don Gia" />
+                        <TableColumn prefWidth="124.0" text="So Luong" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="6.0" layoutY="45.0" text="Chọn Bàn Cần Lập :">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="191.0" layoutY="41.0" prefWidth="150.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="PaneTinhTien" layoutX="458.0" layoutY="164.0" prefHeight="203.0" prefWidth="366.0" style="-fx-background-color: #a1d7e4;">
+               <children>
+                  <Button defaultButton="true" layoutX="18.0" layoutY="151.0" mnemonicParsing="false" text="Tính Tiền ">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txttinhtien" layoutX="134.0" layoutY="151.0" prefHeight="25.0" prefWidth="144.0" />
+                  <ComboBox layoutX="133.0" layoutY="90.0" prefHeight="25.0" prefWidth="137.0" />
+                  <Label layoutX="13.0" layoutY="94.0" text="Chọn Nhân Viên :">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="31.0" text="Ngày Lập Hóa Đơn :" textFill="#141414">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="128.0" layoutY="27.0" prefHeight="25.0" prefWidth="137.0" />
+               </children>
+            </Pane>
+            <TextField fx:id="txtTest" layoutX="493.0" layoutY="534.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

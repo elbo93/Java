@@ -18,10 +18,12 @@ public class HoaDonController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.print("Vai");
     }    
     
 }

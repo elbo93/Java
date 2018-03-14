@@ -7,7 +7,11 @@ package qlnhahang;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +49,9 @@ public class QuanLySreenController implements Initializable {
     private Button btnMenu;
     @FXML
     private Button btnThoat;
-    @FXML
+    
+     private Connection con = null;
+     @FXML
     void btnHoaDonAction(ActionEvent event) throws IOException {
         this.createPage(homePane,"/qlnhahang/HoaDon.fxml");
     }
@@ -55,7 +61,7 @@ public class QuanLySreenController implements Initializable {
     }
    @FXML
     void btnQLHoaDonAction(ActionEvent event) throws IOException {
-         this.createPage(homePane,"/qlnhahang/CTHoaDon.fxml");
+         this.createPage(homePane,"/qlnhahang/DeoHieu.fxml");
     }
       @FXML
     void btnGoiMonAction(ActionEvent event) throws IOException {
@@ -71,19 +77,22 @@ public class QuanLySreenController implements Initializable {
     }
     @FXML
     void btnNhanVienAction(ActionEvent event) throws IOException {
-         this.createPage(homePane,"/qlnhahang/NhanVien.fxml");
+         this.createPage(homePane,"/qlnhahang/NV.fxml");
     }
    @FXML
     void btnThoatAction(ActionEvent event) {
         Platform.exit();
     }
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            con=DBConncet.DBConnection.pmartConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuanLySreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     public void setNode(Node node )
     {
