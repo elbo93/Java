@@ -229,11 +229,7 @@ public class NVController implements Initializable {
                  txtHoTen.setText(nv.getHoTen());
                 dpkNgaySinh.setValue(LocalDate.parse(nv.getNgaySinh()));
                txtDN.setText(nv.getTenDN());
-               txtQuyen.setText(nv.getQuyen());
-            
-         
-            
-                              
+               txtQuyen.setText(nv.getQuyen());                      
             }
         });
        
