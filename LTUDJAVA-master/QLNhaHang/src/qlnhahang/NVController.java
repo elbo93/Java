@@ -5,7 +5,7 @@
  */
 package qlnhahang;
 
-import Classss.NhanVien;
+import Model.NhanVien;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.net.URL;
 import java.sql.Connection;

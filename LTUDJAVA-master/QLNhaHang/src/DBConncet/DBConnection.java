@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Dell
+ * @author Bo
  */
 public class DBConnection {
     public static  Connection pmartConnection() throws SQLException{
@@ -22,7 +22,9 @@ public class DBConnection {
        try
            {
                	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            	con = DriverManager.getConnection("jdbc:sqlserver://DELL-PC\\SQLEXPRESS:2403;databaseName=ResManager","sa","123");
+            	//con = DriverManager.getConnection("jdbc:sqlserver://DELL-PC\\SQLEXPRESS:2403;databaseName=ResManager","sa","123");
+                //
+                con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-T386LCI\\SQLEXPRESS:1946;databaseName=ResManager","sa","sa");
 				if(con!=null) 
                		System.out.println("Connection Successful!");
                                 else if(con==null) 

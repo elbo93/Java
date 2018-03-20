@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="QLNhaHang.jar" size="81285" download="eager" />
+    <jar href="QLNhaHang.jar" size="79718" download="eager" />
     <jar href="lib\sqljdbc4-2.0.jar" size="466359" download="eager" />
     <jar href="lib\sqljdbc42.jar" size="660079" download="eager" />
   </resources>

@@ -5,8 +5,8 @@
  */
 package qlnhahang;
 
-import Classss.Menu;
-import Classss.NhanVien;
+import Model.Menu;
+import Model.NhanVien;
 import DiaLog.AlertDialog;
 import java.net.URL;
 import java.sql.Connection;

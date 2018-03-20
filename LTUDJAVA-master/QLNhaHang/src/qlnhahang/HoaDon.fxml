@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.HoaDonController">
    <children>
       <AnchorPane layoutY="-7.0" prefHeight="128.0" prefWidth="817.0" style="-fx-background-color: #a1d7e4;">
          <children>
@@ -16,7 +16,7 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-            <TextField layoutX="234.0" layoutY="65.0" prefHeight="25.0" prefWidth="319.0" />
+            <TextField fx:id="TxtTraCuuHoaDon" layoutX="234.0" layoutY="65.0" prefHeight="25.0" prefWidth="319.0" />
             <Label layoutX="313.0" layoutY="14.0" prefHeight="47.0" prefWidth="175.0" text="HÓA ĐƠN " textFill="#eb1c0e">
                <font>
                   <Font name="System Bold" size="30.0" />
@@ -26,22 +26,22 @@
       </AnchorPane>
       <AnchorPane layoutX="4.0" layoutY="135.0" prefHeight="380.0" prefWidth="780.0">
          <children>
-            <TableView layoutX="25.0" layoutY="-7.0" prefHeight="372.0" prefWidth="528.0">
+            <TableView fx:id="TblDanhSachHoaDon" layoutX="25.0" layoutY="-7.0" prefHeight="372.0" prefWidth="528.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="So Hoa Don" />
-                <TableColumn prefWidth="75.0" text="TGLAp" />
-                  <TableColumn prefWidth="75.0" text="MSBan" />
-                  <TableColumn prefWidth="75.0" text="SoKhach" />
-                  <TableColumn prefWidth="75.0" text="NguoiLap" />
-                  <TableColumn prefWidth="75.0" text="TiepTan" />
-                  <TableColumn prefWidth="75.0" text="Tong Tien" />
+                <TableColumn fx:id="ColSoHoaDon" prefWidth="75.0" text="So Hoa Don" />
+                <TableColumn fx:id="ColTGLap" prefWidth="75.0" text="TGLAp" />
+                  <TableColumn fx:id="ColMSBan" prefWidth="75.0" text="MSBan" />
+                  <TableColumn fx:id="ColSoKhach" prefWidth="75.0" text="SoKhach" />
+                  <TableColumn fx:id="ColNguoiLap" prefWidth="75.0" text="NguoiLap" />
+                  <TableColumn fx:id="ColNguoiThuTien" prefWidth="75.0" text="NguoiThuTien" />
+                  <TableColumn fx:id="ColTongTien" prefWidth="75.0" text="Tong Tien" />
               </columns>
             </TableView>
-            <TextArea layoutX="571.0" layoutY="14.0" prefHeight="360.0" prefWidth="209.0" style="-fx-border-color: blue;" />
+            <TextArea fx:id="TxtThongTinHoaDon" layoutX="571.0" layoutY="14.0" prefHeight="360.0" prefWidth="209.0" style="-fx-border-color: blue;" />
          </children>
       </AnchorPane>
-      <Button defaultButton="true" layoutX="141.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="In Hoa Don" />
-      <Button defaultButton="true" layoutX="382.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="Xoa Hoa Don" />
+      <Button fx:id="BtnInHoaDon" defaultButton="true" layoutX="141.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="In Hoa Don" />
+      <Button fx:id="BtnXoaHoaDon" defaultButton="true" layoutX="382.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="Xoa Hoa Don" />
       <Label layoutX="661.0" layoutY="125.0" text="Thông Tin Hóa Đơn">
          <font>
             <Font name="System Bold Italic" size="12.0" />
