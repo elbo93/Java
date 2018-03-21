@@ -123,19 +123,8 @@ public class HoaDonController implements Initializable {
         }
         TblDanhSachHoaDon.setItems(data);
     }
-<<<<<<< HEAD
 
-=======
-       private void setCellTable() {
-        ColSoHoaDon.setCellValueFactory(new PropertyValueFactory<>("SoHD"));
-        ColTGLap.setCellValueFactory(new PropertyValueFactory<>("ThoiGianLap"));
-        ColMSBan.setCellValueFactory(new PropertyValueFactory<>("MaSoBan"));
-        ColSoKhach.setCellValueFactory(new PropertyValueFactory<>("SoKhach"));
-        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("MaNVLap"));
-        ColNguoiThuTien.setCellValueFactory(new PropertyValueFactory<>("MaNVTT"));
-        ColTongTien.setCellValueFactory(new PropertyValueFactory<>("TongTien"));
-
-    }
+     
      /*  private void setCellValueTable()
     {
         TblDanhSachHoaDon.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -173,6 +162,6 @@ public class HoaDonController implements Initializable {
                   Logger.getLogger(HoaDonController.class.getName()).log(Level.SEVERE, null, ex);
               }
     }
->>>>>>> 2df2aa0fa61f826ad2d9bc181ea0f5e1846b94cc
+
     
 }

@@ -8,14 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-<<<<<<< HEAD
-    <jar href="QLNhaHang.jar" size="87406" download="eager" />
+    <jar href="QLNhaHang.jar" size="87792" download="eager" />
     <jar href="lib/sqljdbc4-2.0.jar" size="466359" download="eager" />
-=======
-    <jar href="QLNhaHang.jar" size="81840" download="eager" />
-    <jar href="lib\sqljdbc4-2.0.jar" size="466359" download="eager" />
-    <jar href="lib\sqljdbc42.jar" size="660079" download="eager" />
->>>>>>> 2df2aa0fa61f826ad2d9bc181ea0f5e1846b94cc
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="QLNhaHang" >
     <param name="requiredFXVersion" value="8.0+"/>
