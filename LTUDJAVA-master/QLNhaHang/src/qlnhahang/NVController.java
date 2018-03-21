@@ -21,9 +21,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,7 +43,10 @@ public class NVController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> ColNgaySinh;
-
+    
+    @FXML
+    private ComboBox<String> cboQuyen;
+    
     @FXML
     private TableColumn<?, ?> ColQuyen;
 
@@ -85,7 +90,8 @@ public class NVController implements Initializable {
     private PreparedStatement pstid = null;
     private ObservableList<NhanVien> data;
     private int Postion;
-
+    ObservableList<String> list =FXCollections.observableArrayList("Giám Đốc","Quản Lý","Nhân Viên");
+   
     /**
      * Initializes the controller class.
      */
@@ -96,7 +102,7 @@ public class NVController implements Initializable {
          String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String TenDN = txtDN.getText();
         String MatKhau = txtMK.getText();
-        String Quyen = txtQuyen.getText();
+        String Quyen = cboQuyen.getValue();
         System.out.print(date);
         try {
             pstid = con.prepareStatement("select top 1 * from NhanVien order by MaNV desc;");
@@ -159,7 +165,7 @@ public class NVController implements Initializable {
               String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
               String TenDN = txtDN.getText();
               
-              String Quyen = txtQuyen.getText();
+              String Quyen = cboQuyen.getValue();
               pst = con.prepareStatement(sql);
               pst.setString(1, HoTen);
               pst.setString(2, date);
@@ -188,8 +194,9 @@ public class NVController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+         cboQuyen.setItems(list);
             con = DBConncet.DBConnection.pmartConnection();
-            data = FXCollections.observableArrayList();
+            data = FXCollections.observableArrayList();       
             setCellTable();
             LoadData();
             setCellValueTable();
@@ -229,7 +236,7 @@ public class NVController implements Initializable {
                  txtHoTen.setText(nv.getHoTen());
                 dpkNgaySinh.setValue(LocalDate.parse(nv.getNgaySinh()));
                txtDN.setText(nv.getTenDN());
-               txtQuyen.setText(nv.getQuyen());                      
+                cboQuyen.setValue(nv.getQuyen());                      
             }
         });
        

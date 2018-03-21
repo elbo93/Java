@@ -89,7 +89,7 @@ public class HoaDonController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.print("Vai");
+        //System.out.print("Vai");
          try {
             con = DBConncet.DBConnection.pmartConnection();
             data = FXCollections.observableArrayList();
@@ -100,27 +100,26 @@ public class HoaDonController implements Initializable {
             Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
-    
+           private void setCellTable() {
+        ColSoHoaDon.setCellValueFactory(new PropertyValueFactory<>("SoHD"));
+        ColTGLap.setCellValueFactory(new PropertyValueFactory<>("ThoiGianLap"));
+        ColMSBan.setCellValueFactory(new PropertyValueFactory<>("MaSoBan"));
+        ColSoKhach.setCellValueFactory(new PropertyValueFactory<>("SoKhach"));
+        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("MaNVlap"));
+        ColTongTien.setCellValueFactory(new PropertyValueFactory<>("TongTien"));
+
+    }
+      
       private void LoadData() throws SQLException {
         data.clear();
         pst = con.prepareStatement("select * from HoaDon");
         rs = pst.executeQuery();
 
         while (rs.next()) {
-            data.add(new HoaDon(rs.getInt(1), rs.getDate(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6),rs.getFloat(7)));
+            data.add(new HoaDon(rs.getInt(1), rs.getDate(2), rs.getInt(3), rs.getInt(4), rs.getInt(5),rs.getFloat(6)));
         }
         TblDanhSachHoaDon.setItems(data);
     }
-       private void setCellTable() {
-        ColSoHoaDon.setCellValueFactory(new PropertyValueFactory<>("SoHoaDon"));
-        ColTGLap.setCellValueFactory(new PropertyValueFactory<>("TGLap"));
-        ColMSBan.setCellValueFactory(new PropertyValueFactory<>("MSBan"));
-        ColSoKhach.setCellValueFactory(new PropertyValueFactory<>("SoKhach"));
-        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("NguoiLap"));
-        ColNguoiThuTien.setCellValueFactory(new PropertyValueFactory<>("NguoiThuTien"));
-        ColTongTien.setCellValueFactory(new PropertyValueFactory<>("TongTien"));
 
-    }
-      
     
 }

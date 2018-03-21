@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -85,9 +86,14 @@
             <TextField fx:id="txtHoTen" layoutX="145.0" layoutY="64.0" prefHeight="25.0" prefWidth="164.0" />
             <TextField fx:id="txtDN" layoutX="147.0" layoutY="101.0" prefHeight="25.0" prefWidth="164.0" />
             <TextField fx:id="txtPreMK" layoutX="494.0" layoutY="101.0" />
-            <TextField fx:id="txtQuyen" layoutX="495.0" layoutY="141.0" />
+            <TextField fx:id="txtQuyen" layoutX="495.0" layoutY="141.0" visible="false" />
             <DatePicker fx:id="dpkNgaySinh" layoutX="145.0" layoutY="141.0" prefHeight="25.0" prefWidth="164.0" />
             <TextField fx:id="txtMK" layoutX="495.0" layoutY="64.0" prefHeight="25.0" prefWidth="149.0" />
+            <ComboBox fx:id="cboQuyen" layoutX="493.0" layoutY="138.0" prefWidth="150.0" promptText="Loại ">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ComboBox>
          </children>
       </Pane>
       <Button fx:id="btnthem" defaultButton="true" layoutX="128.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnthemAction" prefHeight="46.0" prefWidth="84.0" text="Thêm " />

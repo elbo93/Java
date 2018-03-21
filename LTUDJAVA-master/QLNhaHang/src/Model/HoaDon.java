@@ -12,43 +12,105 @@ import java.util.Calendar;
  * @author Bo
  */
 public class HoaDon {
-    private int  SoHD;
+    private  int  SoHD;
     private Date ThoiGianLap;
     private int MaSoBan;
     private int SoKhach;
     private int MaNVlap;
-    private int MaNVTT;
     private float TongTien;
-    public HoaDon(int SoHD,Date ThoiGianLap,int MaSoBan,int SoKhach,int MaNVLap,int MaNVTT,float TongTien)
+    public HoaDon(int SoHD,Date ThoiGianLap,int MaSoBan,int SoKhach,int MaNVLap,float TongTien)
     {
         this.SoHD=SoHD;
         this.ThoiGianLap=ThoiGianLap;
         this.MaSoBan=MaSoBan;
         this.SoKhach=SoKhach;
         this.MaNVlap=MaNVLap;
-        this.MaNVTT=MaNVTT;
         this.TongTien=TongTien;
         
     }
-    public int getSoHD(){
-        return this.SoHD;
+
+    /**
+     * @return the SoHD
+     */
+    public int getSoHD() {
+        return SoHD;
     }
-    public Date getThoiGianLap(){
-        return this.ThoiGianLap;
+
+    /**
+     * @param SoHD the SoHD to set
+     */
+    public void setSoHD(int SoHD) {
+        this.SoHD = SoHD;
     }
-    public int getMasoBan(){
-        return this.MaSoBan;
+
+    /**
+     * @return the ThoiGianLap
+     */
+    public Date getThoiGianLap() {
+        return ThoiGianLap;
     }
-    public int getSoKhach(){
-        return this.SoKhach;
+
+    /**
+     * @param ThoiGianLap the ThoiGianLap to set
+     */
+    public void setThoiGianLap(Date ThoiGianLap) {
+        this.ThoiGianLap = ThoiGianLap;
     }
-    public int getMaNVLap(){
-        return this.MaNVlap;
-    }   
-    public int getMaNVTT(){
-        return this.MaNVTT;
+
+    /**
+     * @return the MaSoBan
+     */
+    public int getMaSoBan() {
+        return MaSoBan;
     }
-    public float getTongTien(){
-        return this.TongTien;
+
+    /**
+     * @param MaSoBan the MaSoBan to set
+     */
+    public void setMaSoBan(int MaSoBan) {
+        this.MaSoBan = MaSoBan;
     }
+
+    /**
+     * @return the SoKhach
+     */
+    public int getSoKhach() {
+        return SoKhach;
+    }
+
+    /**
+     * @param SoKhach the SoKhach to set
+     */
+    public void setSoKhach(int SoKhach) {
+        this.SoKhach = SoKhach;
+    }
+
+    /**
+     * @return the MaNVlap
+     */
+    public int getMaNVlap() {
+        return MaNVlap;
+    }
+
+    /**
+     * @param MaNVlap the MaNVlap to set
+     */
+    public void setMaNVlap(int MaNVlap) {
+        this.MaNVlap = MaNVlap;
+    }
+
+    /**
+     * @return the TongTien
+     */
+    public float getTongTien() {
+        return TongTien;
+    }
+
+    /**
+     * @param TongTien the TongTien to set
+     */
+    public void setTongTien(float TongTien) {
+        this.TongTien = TongTien;
+    }
+   
 }

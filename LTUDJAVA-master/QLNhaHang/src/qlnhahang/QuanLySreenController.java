@@ -69,7 +69,7 @@ public class QuanLySreenController implements Initializable {
     }
     @FXML
     void btnBaoCaoAction(ActionEvent event) throws IOException {
-        // this.createPage(homePane,"/qlnhahang/BaoCao.fxml");
+        this.createPage(homePane,"/qlnhahang/MonAn.fxml");
     }
       @FXML
     void btnThongKeAction(ActionEvent event) throws IOException {

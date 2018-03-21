@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="435.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="qlnhahang.MonAnController">
+   <children>
+      <Label layoutX="34.0" layoutY="103.0" text="Nhóm " />
+      <Label layoutX="302.0" layoutY="103.0" text="Tên Loại" />
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="75.0" prefWidth="606.0" style="-fx-background-color: #a1d7e4;" text="Thực Đơn" textAlignment="CENTER" textFill="#f2190d">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblMonAn" layoutX="-2.0" layoutY="140.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="ColMaLoai" prefWidth="165.0" text="Mã Loại" />
+          <TableColumn fx:id="ColNhom" prefWidth="171.0" text="Nhóm" />
+            <TableColumn fx:id="ColTenNhom" prefWidth="262.0" text="Tên Loại" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtNhom" layoutX="104.0" layoutY="99.0" />
+      <TextField fx:id="txtTenLoai" layoutX="381.0" layoutY="99.0" />
+      <Button fx:id="btnThem" layoutX="90.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnThemAction" text="Thêm" />
+      <Button fx:id="btnSua" layoutX="230.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSuaAction" prefHeight="25.0" prefWidth="69.0" text="Sửa" />
+      <Button fx:id="btnXoa" layoutX="406.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnXoaAction" text="Xóa" />
+   </children>
+</AnchorPane>
