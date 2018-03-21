@@ -31,24 +31,46 @@ public class HoaDon {
         
     }
     public int getSoHD(){
-        return this.SoHD;
+        return SoHD;
     }
     public Date getThoiGianLap(){
-        return this.ThoiGianLap;
+        return ThoiGianLap;
     }
-    public int getMasoBan(){
-        return this.MaSoBan;
+    public int getMaSoBan(){
+        return MaSoBan;
     }
     public int getSoKhach(){
-        return this.SoKhach;
+        return SoKhach;
     }
     public int getMaNVLap(){
-        return this.MaNVlap;
+        return MaNVlap;
     }   
     public int getMaNVTT(){
-        return this.MaNVTT;
+        return MaNVTT;
     }
     public float getTongTien(){
-        return this.TongTien;
+        return TongTien;
     }
+    public void setSoHD(int SoHD){
+        this.SoHD=SoHD;
+    }
+    public void setThoiGianLap(Date ThoiGianLap){
+        this.ThoiGianLap=ThoiGianLap;
+    }
+     public void setMaSoBan(int MaSoBan){
+        this.MaSoBan=MaSoBan;
+    }
+    public void setSoKhach(int SoKhach){
+        this.SoKhach=SoKhach;
+    }
+    public void setMaVNLap(int MaNVLap){
+        this.MaNVlap=MaNVLap;
+    }
+    public void setMaNVTT(int MaNVTT){
+        this.MaNVTT=MaNVTT;
+    }
+    public void setTongTien(float TongTien){
+        this.TongTien=TongTien;
+    }
+    
 }

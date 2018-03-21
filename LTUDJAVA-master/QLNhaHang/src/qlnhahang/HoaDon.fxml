@@ -29,7 +29,7 @@
             <TableView fx:id="TblDanhSachHoaDon" layoutX="25.0" layoutY="-7.0" prefHeight="372.0" prefWidth="528.0">
               <columns>
                 <TableColumn fx:id="ColSoHoaDon" prefWidth="75.0" text="So Hoa Don" />
-                <TableColumn fx:id="ColTGLap" prefWidth="75.0" text="TGLAp" />
+                <TableColumn fx:id="ColTGLap" prefWidth="75.0" text="TGLap" />
                   <TableColumn fx:id="ColMSBan" prefWidth="75.0" text="MSBan" />
                   <TableColumn fx:id="ColSoKhach" prefWidth="75.0" text="SoKhach" />
                   <TableColumn fx:id="ColNguoiLap" prefWidth="75.0" text="NguoiLap" />
@@ -41,7 +41,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="BtnInHoaDon" defaultButton="true" layoutX="141.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="In Hoa Don" />
-      <Button fx:id="BtnXoaHoaDon" defaultButton="true" layoutX="382.0" layoutY="532.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="Xoa Hoa Don" />
+      <Button fx:id="btnXoa" defaultButton="true" layoutX="382.0" layoutY="532.0" mnemonicParsing="false" onAction="#btnXoaAction" prefHeight="39.0" prefWidth="87.0" text="Xoa Hoa Don" />
       <Label layoutX="661.0" layoutY="125.0" text="Thông Tin Hóa Đơn">
          <font>
             <Font name="System Bold Italic" size="12.0" />
