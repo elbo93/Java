@@ -28,6 +28,7 @@ public class HoaDon {
         this.TongTien=TongTien;
         
     }
+<<<<<<< HEAD
 
     /**
      * @return the SoHD
@@ -113,4 +114,49 @@ public class HoaDon {
         this.TongTien = TongTien;
     }
    
+=======
+    public int getSoHD(){
+        return SoHD;
+    }
+    public Date getThoiGianLap(){
+        return ThoiGianLap;
+    }
+    public int getMaSoBan(){
+        return MaSoBan;
+    }
+    public int getSoKhach(){
+        return SoKhach;
+    }
+    public int getMaNVLap(){
+        return MaNVlap;
+    }   
+    public int getMaNVTT(){
+        return MaNVTT;
+    }
+    public float getTongTien(){
+        return TongTien;
+    }
+    public void setSoHD(int SoHD){
+        this.SoHD=SoHD;
+    }
+    public void setThoiGianLap(Date ThoiGianLap){
+        this.ThoiGianLap=ThoiGianLap;
+    }
+     public void setMaSoBan(int MaSoBan){
+        this.MaSoBan=MaSoBan;
+    }
+    public void setSoKhach(int SoKhach){
+        this.SoKhach=SoKhach;
+    }
+    public void setMaVNLap(int MaNVLap){
+        this.MaNVlap=MaNVLap;
+    }
+    public void setMaNVTT(int MaNVTT){
+        this.MaNVTT=MaNVTT;
+    }
+    public void setTongTien(float TongTien){
+        this.TongTien=TongTien;
+    }
+    
+>>>>>>> 2df2aa0fa61f826ad2d9bc181ea0f5e1846b94cc
 }

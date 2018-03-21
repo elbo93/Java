@@ -5,6 +5,7 @@
  */
 package qlnhahang;
 
+import DiaLog.AlertDialog;
 import Model.HoaDon;
 import Model.NhanVien;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -93,8 +95,9 @@ public class HoaDonController implements Initializable {
          try {
             con = DBConncet.DBConnection.pmartConnection();
             data = FXCollections.observableArrayList();
-            setCellTable();
             LoadData();
+            setCellTable();
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
@@ -120,6 +123,56 @@ public class HoaDonController implements Initializable {
         }
         TblDanhSachHoaDon.setItems(data);
     }
+<<<<<<< HEAD
 
+=======
+       private void setCellTable() {
+        ColSoHoaDon.setCellValueFactory(new PropertyValueFactory<>("SoHD"));
+        ColTGLap.setCellValueFactory(new PropertyValueFactory<>("ThoiGianLap"));
+        ColMSBan.setCellValueFactory(new PropertyValueFactory<>("MaSoBan"));
+        ColSoKhach.setCellValueFactory(new PropertyValueFactory<>("SoKhach"));
+        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("MaNVLap"));
+        ColNguoiThuTien.setCellValueFactory(new PropertyValueFactory<>("MaNVTT"));
+        ColTongTien.setCellValueFactory(new PropertyValueFactory<>("TongTien"));
+
+    }
+     /*  private void setCellValueTable()
+    {
+        TblDanhSachHoaDon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                
+               HoaDon nv= TblDanhSachHoaDon.getItems().get(TblDanhSachHoaDon.getSelectionModel().getSelectedIndex());
+                 Postion=nv.getSoHD();
+                 TxtThongTinHoaDon.setText(nv.getHoTen());
+                dpkNgaySinh.setValue(LocalDate.parse(nv.getNgaySinh()));
+               txtDN.setText(nv.getTenDN());
+               txtQuyen.setText(nv.getQuyen());                      
+            }
+        });
+       
+    }
+      */
+        @FXML
+      void btnXoaAction(ActionEvent event) {
+
+        String sql="delete from HoaDon where SoHD=?";
+         try {
+                  pst = con.prepareStatement(sql);
+                  pst.setInt(1, Postion);
+                  int i = pst.executeUpdate();
+                  if (i == 1) {
+                      AlertDialog.display("Infor", "Xoa Thanh Cong");
+
+                  } else {
+                      AlertDialog.display("Infor", "Xoa That Bai");
+                  }
+                  setCellTable();
+                  LoadData();
+              } catch (SQLException ex) {
+                  Logger.getLogger(HoaDonController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+    }
+>>>>>>> 2df2aa0fa61f826ad2d9bc181ea0f5e1846b94cc
     
 }
