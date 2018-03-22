@@ -96,10 +96,9 @@
             </ComboBox>
          </children>
       </Pane>
-      <Button fx:id="btnthem" defaultButton="true" layoutX="128.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnthemAction" prefHeight="46.0" prefWidth="84.0" text="Thêm " />
-      <Button fx:id="btnXoa" defaultButton="true" layoutX="279.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnXoaAction" prefHeight="46.0" prefWidth="84.0" text="Xóa " />
-      <Button defaultButton="true" layoutX="423.0" layoutY="522.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="74.0" text="Sửa" />
-      <Button fx:id="btnCapNhat" defaultButton="true" layoutX="555.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnCapNhatAction" prefHeight="46.0" prefWidth="72.0" text="Cập Nhật " />
+      <Button fx:id="btnthem" defaultButton="true" layoutX="128.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnthemAction" prefHeight="46.0" prefWidth="84.0" />
+      <Button fx:id="btnXoa" defaultButton="true" layoutX="352.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnXoaAction" prefHeight="46.0" prefWidth="124.0" text="Xóa " />
+      <Button fx:id="btnCapNhat" defaultButton="true" layoutX="555.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnCapNhatAction" prefHeight="46.0" prefWidth="72.0" />
       <TableView fx:id="tblNhanVien" layoutX="14.0" layoutY="191.0" prefHeight="305.0" prefWidth="814.0">
          <columns>
             <TableColumn fx:id="ColMaNV" prefWidth="119.0" text="MaNV" />

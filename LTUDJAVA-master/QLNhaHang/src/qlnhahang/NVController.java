@@ -33,7 +33,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-
+import javax.xml.validation.Validator;
 /**
  * FXML Controller class
  *
@@ -97,44 +97,65 @@ public class NVController implements Initializable {
      */
     @FXML
     void btnthemAction(ActionEvent event) {
-        String sql = "Insert into NhanVien(MaNV,HoTen,NgaySinh,TenDN,MatKhau,Quyen)Values(?,?,?,?,?,?)";
-        String HoTen = txtHoTen.getText();
-         String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String TenDN = txtDN.getText();
-        String MatKhau = txtMK.getText();
-        String Quyen = cboQuyen.getValue();
-        System.out.print(date);
-        try {
-            pstid = con.prepareStatement("select top 1 * from NhanVien order by MaNV desc;");
-            pst = con.prepareStatement(sql);
-            rs = pstid.executeQuery();
-            int j = 0;
-            while (rs.next()) {
-                id = rs.getInt("MaNV") + 1;
+        String text = btnthem.getText();
+        String t = "Thêm";
+        String t2 = "Lưu";
+      
 
+        if (text.equals(t)) {
+              btnCapNhat.setDisable(true);
+            btnXoa.setDisable(true);
+            txtDN.clear();
+            txtHoTen.clear();
+            txtDN.setDisable(false);
+            txtHoTen.setDisable(false);
+            txtMK.setDisable(false);
+            txtPreMK.setDisable(false);
+            txtQuyen.setDisable(false);
+            btnthem.setText("Lưu");
+            tblNhanVien.setDisable(true);
+        } else
+        {
+            if (text.equals(t2)) {
+            String sql = "Insert into NhanVien(MaNV,HoTen,NgaySinh,TenDN,MatKhau,Quyen)Values(?,?,?,?,?,?)";
+            String HoTen = txtHoTen.getText();
+            String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            String TenDN = txtDN.getText();
+            String MatKhau = txtMK.getText();
+            String Quyen = cboQuyen.getValue();
+            System.out.print(date);
+            try {
+                pstid = con.prepareStatement("select top 1 * from NhanVien order by MaNV desc;");
+                pst = con.prepareStatement(sql);
+                rs = pstid.executeQuery();
+                int j = 0;
+                while (rs.next()) {
+                    id = rs.getInt("MaNV") + 1;
+
+                }
+                pst.setInt(1, id);
+                pst.setString(2, HoTen);
+                pst.setString(3, date);
+                pst.setString(4, TenDN);
+                pst.setString(5, MatKhau);
+                pst.setString(6, Quyen);
+                int i = pst.executeUpdate();
+                if (i == 1) {
+                    System.out.print("Them Thanh Cong");
+                     btnthem.setText("Thêm");
+                     tblNhanVien.setDisable(false);
+                    
+
+                } else {
+                    System.out.print("Them That Bai");
+                }
+                setCellTable();
+                LoadData();
+            } catch (SQLException ex) {
+                Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            pst.setInt(1, id);
-            pst.setString(2, HoTen);
-            pst.setString(3,date);
-            pst.setString(4, TenDN);
-            pst.setString(5, MatKhau);
-            pst.setString(6, Quyen);
-            int i = pst.executeUpdate();
-            if (i == 1) {
-                System.out.print("Them Thanh Cong");
-           
-                
-            }
-            else 
-            {
-                System.out.print("Them That Bai");
-            }
-                 setCellTable();
-                 LoadData();
-        } catch (SQLException ex) {
-            Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }
     }
       @FXML
     void btnXoaAction(ActionEvent event) {
@@ -145,7 +166,8 @@ public class NVController implements Initializable {
             int i = pst.executeUpdate();
             if (i == 1) {
                 System.out.print("Delete Thanh Cong");
-
+                btnXoa.setDisable(true);
+                btnCapNhat.setDisable(true);
             } else {
                 System.out.print("Delete That Bai");
             }
@@ -155,55 +177,76 @@ public class NVController implements Initializable {
             Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     @FXML
+    @FXML
     void btnCapNhatAction(ActionEvent event) {
-                try {
-                    setCellValueTable();
-                    
-              String sql = "update NhanVien set HoTen=?, NgaySinh=?,TenDN=?,Quyen=? where MaNV=?";
-              String HoTen = txtHoTen.getText();
-              String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-              String TenDN = txtDN.getText();
-              
-              String Quyen = cboQuyen.getValue();
-              pst = con.prepareStatement(sql);
-              pst.setString(1, HoTen);
-              pst.setString(2, date);
-              pst.setString(3, TenDN);
-              //    pst.setString(5, MatKhau);
-              pst.setString(4, Quyen);
-               pst.setInt(5,Postion);
-               int i = pst.executeUpdate();
-            if (i == 1) {
-                System.out.print("Cap nhat Thanh Cong");
-           
-                
-            }
-            else 
-            {
-                System.out.print("Cap Nhat That Bai");
-            }
-             setCellTable();
-                 LoadData();
-          } catch (SQLException ex) {
-              Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
-          }
-        
-    }
-      
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
         try {
-         cboQuyen.setItems(list);
-            con = DBConncet.DBConnection.pmartConnection();
-            data = FXCollections.observableArrayList();       
-            setCellTable();
-            LoadData();
-            setCellValueTable();
+            String text = btnCapNhat.getText();
+            String t = "Cập Nhật";
+            String t2 = "Lưu";
+          
+            if (text.equals(t)) {
+               
+                txtDN.setDisable(false);
+                txtHoTen.setDisable(false);
+                txtMK.setDisable(false);
+                txtPreMK.setDisable(false);
+                txtQuyen.setDisable(false);
+                btnCapNhat.setText("Lưu");
+            } else {
+                if (text.equals(t2)) {
+
+                    setCellValueTable();
+
+                    String sql = "update NhanVien set HoTen=?, NgaySinh=?,TenDN=?,Quyen=? where MaNV=?";
+                    String HoTen = txtHoTen.getText();
+                    String date = dpkNgaySinh.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                    String TenDN = txtDN.getText();
+
+                    String Quyen = cboQuyen.getValue();
+                    pst = con.prepareStatement(sql);
+                    pst.setString(1, HoTen);
+                    pst.setString(2, date);
+                    pst.setString(3, TenDN);
+                    //    pst.setString(5, MatKhau);
+                    pst.setString(4, Quyen);
+                    pst.setInt(5, Postion);
+                    int i = pst.executeUpdate();
+                    if (i == 1) {
+                        System.out.print("Cap nhat Thanh Cong");
+                        btnCapNhat.setText("Cập Nhật");
+                        btnCapNhat.setDisable(true);
+                        btnXoa.setDisable(true);
+
+                    } else {
+                        System.out.print("Cap Nhat That Bai");
+                    }
+                    setCellTable();
+                    LoadData();
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+      
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+      
+        try {
+            con = DBConncet.DBConnection.pmartConnection();
+            data = FXCollections.observableArrayList();
+            btnthem.setText("Thêm");
+             btnCapNhat.setDisable(true);
+             btnXoa.setDisable(true);
+             btnCapNhat.setText("Cập Nhật");
+            setCellTable();
+            LoadData();
+         setCellValueTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void setCellTable() {
@@ -215,7 +258,17 @@ public class NVController implements Initializable {
 
     }
 
-    private void LoadData() throws SQLException {
+    private void LoadData() throws SQLException {    
+        txtDN.setDisable(true);
+        txtHoTen.setDisable(true);
+        txtMK.setDisable(true);
+        txtPreMK.setDisable(true);
+        txtDN.setDisable(true);
+        cboQuyen.setDisable(true);
+      
+         cboQuyen.setItems(list);
+        
+         //tblNhanVien.setEditable(false);
         data.clear();
         pst = con.prepareStatement("select * from NhanVien");
         rs = pst.executeQuery();
@@ -227,19 +280,17 @@ public class NVController implements Initializable {
     }
     private void setCellValueTable()
     {
-        tblNhanVien.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                
-               NhanVien nv= tblNhanVien.getItems().get(tblNhanVien.getSelectionModel().getSelectedIndex());
-                 Postion=nv.getMaNV();
-                 txtHoTen.setText(nv.getHoTen());
-                dpkNgaySinh.setValue(LocalDate.parse(nv.getNgaySinh()));
-               txtDN.setText(nv.getTenDN());
-                cboQuyen.setValue(nv.getQuyen());                      
-            }
+        tblNhanVien.setOnMouseClicked((MouseEvent event) -> {
+         //  NhanVien nv=tblNhanVien.getItems().get(0);
+              NhanVien nv= tblNhanVien.getItems().get(tblNhanVien.getSelectionModel().getSelectedIndex());
+            Postion=nv.getMaNV();
+            txtHoTen.setText(nv.getHoTen());
+            dpkNgaySinh.setValue(LocalDate.parse(nv.getNgaySinh()));
+            txtDN.setText(nv.getTenDN());
+            cboQuyen.setValue(nv.getQuyen());
+            btnCapNhat.setDisable(false);
+            btnXoa.setDisable(false);
         });
-       
     }
 
 }
