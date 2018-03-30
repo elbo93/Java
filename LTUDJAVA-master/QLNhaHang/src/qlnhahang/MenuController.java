@@ -17,10 +17,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,6 +32,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -77,7 +81,12 @@ public class MenuController implements Initializable {
     private int id;
      @FXML
     private TextField txtDVT;
-
+     
+     @FXML
+    private TextField txtTK;
+     
+      @FXML
+    private ComboBox<String> cboLoai;
     @FXML
     private TextField txtTenMonAn;
 
@@ -91,7 +100,7 @@ public class MenuController implements Initializable {
     private Button btnCapNhat;
       @FXML
     private Button btnNew;
-
+  ObservableList<String> list =FXCollections.observableArrayList();
       
 ///-----------------------------------Button Action-------------------------------------------------
 ///-----------------------------------Button Action-------------------------------------------------
@@ -101,7 +110,7 @@ public class MenuController implements Initializable {
         
          String sql = "Insert into ThucDon(MaThucDon,MaLoai,TenThucDon,DonViTinh,GiaHienHanh)Values(?,?,?,?,?)";
       
-            String MaLoai=txtLoaiThucDon.getText();
+            String MaLoai=cboLoai.getValue();
             String TenThucDon=txtTenMonAn.getText();
             String DonViTinh=txtDVT.getText();
             String GiaHienHanh=txtGiaHienHanh.getText();
@@ -163,30 +172,15 @@ public class MenuController implements Initializable {
           } else {
               alert.close();
           }
-//         String sql="delete from ThucDon where MaThucDon=?";
-//        try {
-//            pst = con.prepareStatement(sql);
-//            pst.setInt(1, Postion);
-//            int i = pst.executeUpdate();
-//            if (i == 1) {
-//                AlertDialog.display("Infor","Xoa Thanh Cong");
-//
-//            } else {
-//               AlertDialog.display("Infor","Xoa That Bai");
-//            }
-//            setCellTable();
-//            LoadData();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }
       @FXML
     void btnCapNhatAction(ActionEvent event) {
          try {
                     setCellValueTable();
                     
-              String sql = "update ThucDon set MaLoai=?,TenThucDon =?,DonViTinh=?,GiaHienHanh=? where MaThucDon=?";
-            String MaLoai=txtLoaiThucDon.getText();
+            String sql = "update ThucDon set MaLoai=?,TenThucDon =?,DonViTinh=?,GiaHienHanh=? where MaThucDon=?";
+            String MaLoai=cboLoai.getValue();
             String TenThucDon=txtTenMonAn.getText();
             String DonViTinh=txtDVT.getText();
             String GiaHienHanh=txtGiaHienHanh.getText();
@@ -217,7 +211,7 @@ public class MenuController implements Initializable {
     void btnNewAction(ActionEvent event) {
         txtDVT.clear();
         txtGiaHienHanh.clear();
-        txtLoaiThucDon.clear();
+       // txtLoaiThucDon.clear();
         txtTenMonAn.clear();
     }
     
@@ -228,9 +222,10 @@ public class MenuController implements Initializable {
         try {
             con = DBConncet.DBConnection.pmartConnection();
              data = FXCollections.observableArrayList();
-            setCellTable();
-            LoadData();
+             LoadData();
+             setCellTable();
             setCellValueTable();
+            LoadCombobox();
         } catch (SQLException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -251,24 +246,84 @@ public class MenuController implements Initializable {
 
         while (rs.next()) {
             data.add(new Menu(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getFloat(5)));
+//            System.out.print(data);
+            tblMenu.setItems(data);
         }
-        tblMenu.setItems(data);
+        Sreach();
+    }
+    private void LoadCombobox() throws SQLException
+    {
+       
+        pst = con.prepareStatement("select MaLoai  from LoaiThucDon");
+        rs = pst.executeQuery();
+            
+        while (rs.next()) {
+           list.add(rs.getString("MaLoai"));
+        }
+        cboLoai.setItems(list);
+       
     }
         private void setCellValueTable()
     {
-        tblMenu.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                
-               Menu menu= tblMenu.getItems().get(tblMenu.getSelectionModel().getSelectedIndex());
-                 Postion=menu.getMaThucDon();
-               txtLoaiThucDon.setText(String.valueOf(menu.getMaLoai()));
-                txtGiaHienHanh.setText(String.valueOf(menu.getGiaHienHanh()));
-                txtTenMonAn.setText(menu.getTenThucDon());
-                txtDVT.setText(menu.getDonViTinh());
-             //txtGiaHienHanh.setText(menu.getGiaHienHanh());
-            }
+           tblMenu.setOnMouseClicked((MouseEvent event) -> {
+            Menu menu= tblMenu.getItems().get(tblMenu.getSelectionModel().getSelectedIndex());
+            Postion=menu.getMaThucDon();
+           txtLoaiThucDon.setText(String.valueOf(menu.getMaLoai()));
+           cboLoai.setValue(String.valueOf(menu.getMaLoai()));
+            txtGiaHienHanh.setText(String.valueOf(menu.getGiaHienHanh()));
+            txtTenMonAn.setText(menu.getTenThucDon());
+            txtDVT.setText(menu.getDonViTinh());
+            
+            //txtGiaHienHanh.setText(menu.getGiaHienHanh());
         });
        
     }
+             private void Sreach()
+   {
+       FilteredList<Menu> filtereddata=new FilteredList<>(data,e->true);
+       txtTK.setOnKeyReleased(e->{
+       txtTK.textProperty().addListener((ObservableValue, oldValue,newValue)->{
+           filtereddata.setPredicate((Predicate<?super Menu>) nv->{
+           if(newValue==null||newValue.isEmpty())
+           {
+               return true;
+           }
+             String   lowerCaseFilter=newValue.toLowerCase();
+             if(nv.getTenThucDon().contains(newValue))
+             {
+                 return true;
+             }
+              if(nv.getDonViTinh().contains(newValue))
+             {
+                 return true;
+             }
+              if( Float.toString(nv.getGiaHienHanh()).contains(newValue))
+              
+             {
+                 return true;
+             }
+             int a=nv.getMaThucDon();
+            
+            if( Integer.toString(a).contains(newValue))
+              
+             {
+                 return true;
+             }
+            int b=nv.getMaLoai();
+            
+            if( Integer.toString(b).contains(newValue))
+              
+             {
+                 return true;
+             }     
+               return false;
+           });
+           });
+           
+       });
+       SortedList<Menu> sorted=new SortedList<>(filtereddata);
+       sorted.comparatorProperty().bind(tblMenu.comparatorProperty());
+       tblMenu.setItems(sorted);
+   }
+ 
 }

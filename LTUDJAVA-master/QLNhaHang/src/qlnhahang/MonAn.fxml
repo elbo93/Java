@@ -7,27 +7,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="435.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="qlnhahang.MonAnController">
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.MonAnController">
    <children>
-      <Label layoutX="34.0" layoutY="103.0" text="Nhóm " />
-      <Label layoutX="302.0" layoutY="103.0" text="Tên Loại" />
-      <Label alignment="CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="75.0" prefWidth="606.0" style="-fx-background-color: #a1d7e4;" text="Thực Đơn" textAlignment="CENTER" textFill="#f2190d">
+      <Label layoutX="99.0" layoutY="57.0" text="Nhóm " />
+      <Label layoutX="438.0" layoutY="65.0" text="Tên Loại" />
+      <Label alignment="TOP_CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="193.0" prefWidth="829.0" style="-fx-background-color: #a1d7e4;" text="Thực Đơn" textAlignment="CENTER" textFill="#f2190d">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="tblMonAn" layoutX="-2.0" layoutY="140.0" prefHeight="200.0" prefWidth="600.0">
+      <TableView fx:id="tblMonAn" layoutX="-2.0" layoutY="206.0" prefHeight="225.0" prefWidth="826.0">
         <columns>
           <TableColumn fx:id="ColMaLoai" prefWidth="165.0" text="Mã Loại" />
           <TableColumn fx:id="ColNhom" prefWidth="171.0" text="Nhóm" />
             <TableColumn fx:id="ColTenNhom" prefWidth="262.0" text="Tên Loại" />
         </columns>
       </TableView>
-      <TextField fx:id="txtNhom" layoutX="104.0" layoutY="99.0" />
-      <TextField fx:id="txtTenLoai" layoutX="381.0" layoutY="99.0" />
-      <Button fx:id="btnThem" layoutX="90.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnThemAction" text="Thêm" />
-      <Button fx:id="btnSua" layoutX="230.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSuaAction" prefHeight="25.0" prefWidth="69.0" text="Sửa" />
-      <Button fx:id="btnXoa" layoutX="406.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnXoaAction" text="Xóa" />
+      <TextField fx:id="txtTenLoai" layoutX="532.0" layoutY="53.0" />
+      <Button fx:id="btnThem" layoutX="99.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnThemAction" prefHeight="39.0" prefWidth="95.0" />
+      <Button fx:id="btnSua" layoutX="297.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnSuaAction" prefHeight="39.0" prefWidth="103.0" />
+      <Button fx:id="btnXoa" layoutX="497.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnXoaAction" prefHeight="39.0" prefWidth="103.0" text="Xóa" />
+      <ComboBox fx:id="cbo" layoutX="156.0" layoutY="53.0" prefWidth="150.0" promptText="Chọn Loại" />
+      <TextField fx:id="txtTimkiem" layoutX="306.0" layoutY="127.0" prefHeight="25.0" prefWidth="396.0" promptText="Nhập :  Mã Loại ,Tên Loại" />
+      <Label layoutX="186.0" layoutY="131.0" text="Tìm Kiếm  :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="77.0" layoutY="57.0" prefHeight="17.0" prefWidth="45.0" text="Loại">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="434.0" layoutY="57.0" text="Tên Loại :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

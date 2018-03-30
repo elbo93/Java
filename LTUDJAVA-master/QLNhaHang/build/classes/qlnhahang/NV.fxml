@@ -46,7 +46,7 @@
       <TextField layoutX="556.0" layoutY="146.0" />
       <DatePicker layoutX="206.0" layoutY="146.0" prefHeight="25.0" prefWidth="164.0" />
       <TextField layoutX="556.0" layoutY="69.0" prefHeight="25.0" prefWidth="149.0" />
-      <Pane fx:id="pnThongTin" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="823.0" style="-fx-background-color: #a1d7e4;">
+      <Pane fx:id="pnThongTin" layoutX="10.0" layoutY="10.0" prefHeight="233.0" prefWidth="823.0" style="-fx-background-color: #a1d7e4;">
          <children>
             <Label layoutX="274.0" layoutY="7.0" text="THÔNG TIN NHÂN VIÊN " textFill="#f80606">
                <font>
@@ -94,12 +94,18 @@
                   <Insets />
                </opaqueInsets>
             </ComboBox>
+            <TextField fx:id="txtSreach" layoutX="172.0" layoutY="194.0" prefHeight="25.0" prefWidth="450.0" promptText="Nhập :MaNV/HoTen/TenDN" />
+            <Label layoutX="78.0" layoutY="198.0" text="Tìm Kiếm :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Button fx:id="btnthem" defaultButton="true" layoutX="128.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnthemAction" prefHeight="46.0" prefWidth="84.0" />
       <Button fx:id="btnXoa" defaultButton="true" layoutX="352.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnXoaAction" prefHeight="46.0" prefWidth="124.0" text="Xóa " />
       <Button fx:id="btnCapNhat" defaultButton="true" layoutX="555.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnCapNhatAction" prefHeight="46.0" prefWidth="72.0" />
-      <TableView fx:id="tblNhanVien" layoutX="14.0" layoutY="191.0" prefHeight="305.0" prefWidth="814.0">
+      <TableView fx:id="tblNhanVien" layoutX="14.0" layoutY="246.0" prefHeight="268.0" prefWidth="814.0">
          <columns>
             <TableColumn fx:id="ColMaNV" prefWidth="119.0" text="MaNV" />
             <TableColumn fx:id="ColHoTen" prefWidth="116.0" text="Ho Ten" />

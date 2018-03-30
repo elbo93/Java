@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.OderController">
+   <children>
+      <ComboBox fx:id="colTenLoai" layoutX="219.0" layoutY="153.0" onAction="#cobTenLoaiAction" prefHeight="25.0" prefWidth="191.0" />
+      <ListView fx:id="listthucdon" layoutX="23.0" layoutY="191.0" prefHeight="329.0" prefWidth="200.0" />
+      <Label layoutX="238.0" layoutY="202.0" text="Chọn Bàn :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="241.0" layoutY="245.0" text="Đơn Giá">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="241.0" layoutY="291.0" text="Số Lượng">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Button fx:id="btnthem" defaultButton="true" layoutX="269.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnthemAction" prefHeight="50.0" prefWidth="131.0" text="Thêm ">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <ComboBox fx:id="cboBan" layoutX="311.0" layoutY="198.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="txtGia" layoutX="311.0" layoutY="241.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="txtSoLuong" layoutX="311.0" layoutY="287.0" prefHeight="25.0" prefWidth="100.0" />
+      <TableView fx:id="tblMenu" layoutX="450.0" layoutY="193.0" prefHeight="329.0" prefWidth="358.0">
+         <columns>
+            <TableColumn fx:id="ColMTD" minWidth="0.0" prefWidth="0.0" text="Thực Đơn" />
+            <TableColumn fx:id="ColDonGia" minWidth="0.0" prefWidth="95.0" text="Giá Tiền" />
+            <TableColumn fx:id="ColSoLuong" minWidth="0.0" prefWidth="89.0" text="Số Lượng" />
+            <TableColumn fx:id="colTenThucDon" prefWidth="247.0" text="TenThucDon" />
+         </columns>
+      </TableView>
+      <Button defaultButton="true" layoutX="269.0" layoutY="458.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="131.0" text="Lưu">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnDeleteRow" defaultButton="true" layoutX="458.0" layoutY="153.0" mnemonicParsing="false" onAction="#btnDeleteRowAvtion" prefHeight="25.0" prefWidth="137.0" text="Xóa thực đơn đã chọn">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="btndeleteDS" defaultButton="true" layoutX="661.0" layoutY="153.0" mnemonicParsing="false" onAction="#btndeleteDSAction" prefHeight="25.0" prefWidth="137.0" text="Xóa Danh Sách Thực Đơn">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-2.0" prefHeight="138.0" prefWidth="826.0" style="-fx-background-color: #a1d7e4;" text="Gọi Món" textFill="#ee0a0a">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="157.0" text="Chọn Loại Thực Đơn :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

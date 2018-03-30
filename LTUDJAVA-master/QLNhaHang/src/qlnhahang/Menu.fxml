@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="817.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.MenuController">
+<AnchorPane id="AnchorPane" fx:id="txtTimKiem" prefHeight="680.0" prefWidth="817.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.MenuController">
    <children>
-      <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="182.0" prefWidth="854.0" style="-fx-background-color: #a1d7e4;">
+      <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="174.0" prefWidth="854.0" style="-fx-background-color: #a1d7e4;">
          <children>
             <Label layoutX="341.0" layoutY="87.0" text="Tên Món Ăn :" textFill="#101111">
                <font>
@@ -36,10 +36,12 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="txtLoaiThucDon" layoutX="152.0" layoutY="83.0" />
             <TextField fx:id="txtGiaHienHanh" layoutX="152.0" layoutY="137.0" />
             <TextField fx:id="txtTenMonAn" layoutX="419.0" layoutY="83.0" />
             <TextField fx:id="txtDVT" layoutX="419.0" layoutY="137.0" />
+            <TextField fx:id="txtTK" layoutX="655.0" layoutY="86.0" prefHeight="25.0" prefWidth="199.0" />
+            <Label layoutX="591.0" layoutY="90.0" text="Tìm Kiếm :" />
+            <ComboBox fx:id="cboLoai" layoutX="151.0" layoutY="86.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="1.0" layoutY="169.0" prefHeight="287.0" prefWidth="853.0">

@@ -183,17 +183,16 @@
                   </ImageView>
                </children>
             </Pane>
-            <Text fill="#ebe7e7" layoutX="199.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NNT RESTAURANT" wrappingWidth="185.13671875">
+            <Text fill="#ebe7e7" layoutX="614.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NNT RESTAURANT" wrappingWidth="262.13671875">
                <font>
-                  <Font name=".VnBook AntiquaH" size="26.0" />
+                  <Font name=".VnBook AntiquaH" size="36.0" />
                </font>
             </Text>
-            <Text fill="#fcf7f7" layoutX="458.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm Kiếm " textAlignment="CENTER" wrappingWidth="125.58203125">
+            <Label layoutX="332.0" layoutY="35.0" text="WELCOME TO " textFill="#f2efef">
                <font>
-                  <Font size="24.0" />
+                  <Font size="36.0" />
                </font>
-            </Text>
-            <TextField layoutX="606.0" layoutY="49.0" prefHeight="39.0" prefWidth="359.0" />
+            </Label>
          </children>
       </Pane>
    </children>

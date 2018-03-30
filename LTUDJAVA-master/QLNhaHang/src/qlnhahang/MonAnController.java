@@ -17,10 +17,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,6 +32,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -55,91 +60,128 @@ public class MonAnController implements Initializable {
     @FXML
     private TextField txtNhom;
 
+     @FXML
+    private TextField txtTK;
     @FXML
     private TableColumn<?, ?> ColNhom;
 
     @FXML
     private TableColumn<?, ?> ColTenNhom;
-
+   
     @FXML
     private Button btnXoa;
+    @FXML
+    private TextField txtTimkiem;
+     @FXML
+    private ComboBox<String> cbo;
      @FXML
     private TableView<MonAn> tblMonAn;
 
     /**
      * Initializes the controller class.
      */
+       ObservableList<String>Item;
      private Connection con = null;
     private ResultSet rs = null;
     private PreparedStatement pst = null;
-   private PreparedStatement pstid = null;
+    private PreparedStatement pstid = null;
     private ObservableList<MonAn> data;
     private int Postion;
     private int id;
-  //--------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------
+
+    public MonAnController() {
+        this.Item = FXCollections.observableArrayList("Thức Ăn","Nước Uống");
+    }
+
+   
+   
+//  --------------------------------------------------------------------------------
+//    -----------------------------------------------------------------------------
       @FXML
     void btnThemAction(ActionEvent event) {
         String sql = "Insert into LoaiThucDon(MaLoai,Nhom,TenLoai)Values(?,?,?)";
-        String Nhom = txtNhom.getText();
-        String TenLoai=txtTenLoai.getText();
-       
-   //     System.out.print(date);
-        try {
-            pstid = con.prepareStatement("select top 1 * from LoaiThucDon order by MaLoai desc;");
-            pst = con.prepareStatement(sql);
-            rs = pstid.executeQuery();
-            int j = 0;
-            while (rs.next()) {
-                id = rs.getInt("MaLoai") + 1;
+        String Nhom = cbo.getValue();
+        String TenLoai = txtTenLoai.getText();
+        String text = btnThem.getText();
+        String t = "Thêm";
+        String t2 = "Lưu";
+        if (text.equals(t)) {
+            btnThem.setText("Lưu");
+            cbo.setDisable(false);
+            txtTenLoai.clear();
+            txtTenLoai.setDisable(false);
+        } else {
+            if (text.equals(t2)) {
+                try {
+                    pstid = con.prepareStatement("select top 1 * from LoaiThucDon order by MaLoai desc;");
+                    pst = con.prepareStatement(sql);
+                    rs = pstid.executeQuery();
+                    int j = 0;
+                    while (rs.next()) {
+                        id = rs.getInt("MaLoai") + 1;
 
+                    }
+                    pst.setInt(1, id);
+                    pst.setString(2, Nhom);
+                    pst.setString(3, TenLoai);
+                    int i = pst.executeUpdate();
+                    if (i == 1) {
+                        AlertDialog.display("Infor", "Them Thanh Cong");
+                        btnThem.setText("Thêm");
+                    } else {
+                        AlertDialog.display("Infor", "Them That Bai");
+                         btnThem.setText("Thêm");
+                    }
+                    setCellTable();
+                    LoadData();
+                    Sreach();
+                } catch (SQLException ex) {
+                    Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            pst.setInt(1, id);
-            pst.setString(2, Nhom);
-            pst.setString(3,TenLoai);
-            int i = pst.executeUpdate();
-           if (i == 1) {
-                AlertDialog.display("Infor","Them Thanh Cong");
-           
-                
-            }
-            else 
-            {
-               AlertDialog.display("Infor","Them That Bai");
-            }
-                 setCellTable();
-                 LoadData();
-        } catch (SQLException ex) {
-            Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
   @FXML
     void btnSuaAction(ActionEvent event) {
-         try {
+        try {
+            String text = btnSua.getText();
+            String t = "Cập Nhật";
+            String t2 = "Lưu";
+            if (text.equals(t)) {
+                txtTenLoai.setDisable(false);
+                cbo.setDisable(false);
+                btnSua.setText("Lưu");
+            } else {
+                if (text.equals(t2)) {
                     setCellValueTable();
-                    
-              String sql = "update LoaiThucDon set Nhom=?,TenLoai =? where MaLoai=?";
-            String Nhom = txtNhom.getText();
-            String TenLoai=txtTenLoai.getText();
-              pst = con.prepareStatement(sql);
-              pst.setString(1, Nhom);
-              pst.setString(2, TenLoai);
-               pst.setInt(3,Postion);
-               int i = pst.executeUpdate();
-            if (i == 1) {
-               // System.out.print("Cap nhat Thanh Cong");
-                AlertDialog.display("Infor","Cap Nhat Thanh Cong");
-                
+                    String sql = "update LoaiThucDon set Nhom=?,TenLoai =? where MaLoai=?";
+                    String Nhom = cbo.getValue();
+                    String TenLoai = txtTenLoai.getText();
+                    pst = con.prepareStatement(sql);
+                    pst.setString(1, Nhom);
+                    pst.setString(2, TenLoai);
+                    pst.setInt(3, Postion);
+                    int i = pst.executeUpdate();
+                    if (i == 1) {
+                        // System.out.print("Cap nhat Thanh Cong");
+                        AlertDialog.display("Infor", "Cap Nhat Thanh Cong");
+                       btnSua.setText("Cập Nhật");
+                       btnSua.setDisable(true);
+                       btnXoa.setDisable(true);
+                    } else {
+                        AlertDialog.display("Infor", "Cap Nhat That Bai");
+                        btnSua.setText("Cập Nhật");
+                         btnSua.setDisable(true);
+                        btnXoa.setDisable(true);
+                    }
+                    setCellTable();
+                    LoadData();
+                    Sreach();
+                }
             }
-            else 
-            {
-               AlertDialog.display("Infor","Cap Nhat That Bai");
-            }
-             setCellTable();
-                 LoadData();
-          } catch (SQLException ex) {
-              Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
-          }
+        } catch (SQLException ex) {
+            Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
        @FXML
     void btnXoaAction(ActionEvent event) {
@@ -157,12 +199,14 @@ public class MonAnController implements Initializable {
                   int i = pst.executeUpdate();
                   if (i == 1) {
                       AlertDialog.display("Infor", "Xoa Thanh Cong");
-
+                      btnXoa.setDisable(true);
                   } else {
                       AlertDialog.display("Infor", "Xoa That Bai");
+                       btnXoa.setDisable(true);
                   }
                   setCellTable();
                   LoadData();
+                    Sreach();
               } catch (SQLException ex) {
                   Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
               }
@@ -173,12 +217,18 @@ public class MonAnController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          try {
-        
+            
             con = DBConncet.DBConnection.pmartConnection();
             data = FXCollections.observableArrayList(); 
            setCellTable();
             LoadData();
             setCellValueTable();
+           Sreach();
+           btnThem.setText("Thêm");
+           btnSua.setText("Cập Nhật");
+           cbo.setDisable(true);
+           btnSua.setDisable(true);
+           btnXoa.setDisable(true);
         } catch (SQLException ex) {
             Logger.getLogger(NVController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -190,7 +240,11 @@ public class MonAnController implements Initializable {
         ColTenNhom.setCellValueFactory(new PropertyValueFactory<>("TenLoai"));
     }
      private void LoadData() throws SQLException {
-       data.clear();
+       txtTenLoai.setDisable(true);
+       cbo.setDisable(true);
+         cbo.setItems(Item);
+        cbo.setValue("Thức Ăn");
+         data.clear();
         pst = con.prepareStatement("select * from LoaiThucDon");
         rs = pst.executeQuery();
 
@@ -198,7 +252,12 @@ public class MonAnController implements Initializable {
             data.add(new MonAn(rs.getInt(1), rs.getString(2), rs.getString(3)));
         }
         tblMonAn.setItems(data);
-    }
+          tblMonAn.getSelectionModel().clearAndSelect(0);   
+            MonAn nv= tblMonAn.getItems().get(tblMonAn.getSelectionModel().getSelectedIndex());
+         // txtNhom.setText(nv.getNhom());
+          txtTenLoai.setText(nv.getTenLoai());
+          cbo.setValue(nv.getNhom());
+   }
      private void setCellValueTable()
     {
         tblMonAn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -207,11 +266,48 @@ public class MonAnController implements Initializable {
                 
                MonAn ma= tblMonAn.getItems().get(tblMonAn.getSelectionModel().getSelectedIndex());
                  Postion=ma.getMaLoai();
-                 txtNhom.setText(ma.getNhom());
+                 cbo.setValue(ma.getNhom());
                  txtTenLoai.setText(ma.getTenLoai());
-                                   
+                  btnXoa.setDisable(false);
+                  btnSua.setDisable(false);
             }
         });
        
     }
+  private void Sreach()
+   {
+       FilteredList<MonAn> filtereddata=new FilteredList<>(data,e->true);
+       txtTimkiem.setOnKeyReleased(e->{
+       txtTimkiem.textProperty().addListener((ObservableValue, oldValue,newValue)->{
+           filtereddata.setPredicate((Predicate<?super MonAn>) nv->{
+           if(newValue==null||newValue.isEmpty())
+           {
+               return true;
+           }
+//             String   lowerCaseFilter=newValue.toLowerCase();
+             if(nv.getTenLoai().contains(newValue))
+             {
+                 return true;
+             }
+             int a=nv.getMaLoai();
+            
+            if( Integer.toString(a).contains(newValue))
+              
+             {
+                 return true;
+             }
+//             if( nv.getTenDN().contains(newValue))   
+//             {
+//                 return true;
+//             }        
+               return false;
+           });
+           });
+           
+       });
+       SortedList<MonAn> sorted=new SortedList<>(filtereddata);
+       sorted.comparatorProperty().bind(tblMonAn.comparatorProperty());
+       tblMonAn.setItems(sorted);
+   }
+  
 }
