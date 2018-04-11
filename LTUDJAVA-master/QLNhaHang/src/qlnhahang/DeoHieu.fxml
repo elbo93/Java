@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="823.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="qlnhahang.DeoHieuController">
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlnhahang.DeoHieuController">
    <children>
       <Pane prefHeight="203.0" prefWidth="366.0" style="-fx-background-color: #a1d7e4;">
          <children>
@@ -81,32 +80,15 @@
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <Pane layoutX="14.0" layoutY="85.0" prefHeight="497.0" prefWidth="419.0">
-               <children>
-                  <TableView layoutY="78.0" prefHeight="418.0" prefWidth="419.0">
-                     <columns>
-                        <TableColumn prefWidth="90.0" text="Ten Thuc Don" />
-                        <TableColumn prefWidth="142.0" text="Don Gia" />
-                        <TableColumn prefWidth="124.0" text="So Luong" />
-                     </columns>
-                  </TableView>
-                  <Label layoutX="6.0" layoutY="45.0" text="Chọn Bàn Cần Lập :">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </Label>
-                  <ComboBox layoutX="191.0" layoutY="41.0" prefWidth="150.0" />
-               </children>
-            </Pane>
             <Pane fx:id="PaneTinhTien" layoutX="458.0" layoutY="164.0" prefHeight="203.0" prefWidth="366.0" style="-fx-background-color: #a1d7e4;">
                <children>
-                  <Button defaultButton="true" layoutX="18.0" layoutY="151.0" mnemonicParsing="false" text="Tính Tiền ">
+                  <Button fx:id="btnTinhTien" defaultButton="true" layoutX="18.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnTinhTienAction" text="Tính Tiền ">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Button>
                   <TextField fx:id="txttinhtien" layoutX="134.0" layoutY="151.0" prefHeight="25.0" prefWidth="144.0" />
-                  <ComboBox layoutX="133.0" layoutY="90.0" prefHeight="25.0" prefWidth="137.0" />
+                  <ComboBox fx:id="CboNhanVien" layoutX="133.0" layoutY="90.0" onAction="#CboNhanVienAction" prefHeight="25.0" prefWidth="137.0" />
                   <Label layoutX="13.0" layoutY="94.0" text="Chọn Nhân Viên :">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
@@ -117,10 +99,22 @@
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <DatePicker layoutX="128.0" layoutY="27.0" prefHeight="25.0" prefWidth="137.0" />
                </children>
             </Pane>
-            <TextField fx:id="txtTest" layoutX="493.0" layoutY="534.0" />
+            <ComboBox fx:id="CboBan" layoutX="161.0" layoutY="137.0" onAction="#CboBanActive" prefWidth="150.0" />
+            <TableView fx:id="tblCTHoaDon" layoutX="21.0" layoutY="182.0" prefHeight="342.0" prefWidth="356.0">
+               <columns>
+                  <TableColumn fx:id="ColTenThucDon" prefWidth="90.0" text="Tên Thực Đơn" />
+                  <TableColumn fx:id="ColDonGia" prefWidth="142.0" text="Đơn Giá" />
+                  <TableColumn fx:id="ColSoLuong" prefWidth="124.0" text="Sô Lượng" />
+               </columns>
+            </TableView>
+            <Label layoutX="27.0" layoutY="141.0" text="Chọn Bàn Cần Lập :">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dpkngaylaphd" layoutX="474.0" layoutY="128.0" prefHeight="25.0" prefWidth="137.0" />
          </children>
       </AnchorPane>
    </children>

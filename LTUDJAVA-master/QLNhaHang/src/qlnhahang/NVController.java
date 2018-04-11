@@ -413,9 +413,9 @@ public class NVController implements Initializable {
      if(txtHoTen.getText().isEmpty()||txtDN.getText().isEmpty()||txtMK.getText().isEmpty()||txtPreMK.getText().isEmpty())
      {
          Alert alert =new Alert (AlertType.WARNING);
-          alert.setTitle("Thieu thong tin");
+          alert.setTitle("Thiếu thông tin");
           alert.setHeaderText(null);
-          alert.setContentText("Thieu thong tin");
+          alert.setContentText("Thiếu  thông tin");
           alert.showAndWait();
           return false;
      }

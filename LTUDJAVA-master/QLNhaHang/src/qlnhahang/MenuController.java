@@ -224,7 +224,7 @@ public class MenuController implements Initializable {
              data = FXCollections.observableArrayList();
              LoadData();
              setCellTable();
-            setCellValueTable();
+           setCellValueTable();
             LoadCombobox();
         } catch (SQLException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
@@ -268,13 +268,11 @@ public class MenuController implements Initializable {
            tblMenu.setOnMouseClicked((MouseEvent event) -> {
             Menu menu= tblMenu.getItems().get(tblMenu.getSelectionModel().getSelectedIndex());
             Postion=menu.getMaThucDon();
-           txtLoaiThucDon.setText(String.valueOf(menu.getMaLoai()));
            cboLoai.setValue(String.valueOf(menu.getMaLoai()));
             txtGiaHienHanh.setText(String.valueOf(menu.getGiaHienHanh()));
             txtTenMonAn.setText(menu.getTenThucDon());
             txtDVT.setText(menu.getDonViTinh());
-            
-            //txtGiaHienHanh.setText(menu.getGiaHienHanh());
+          
         });
        
     }

@@ -260,17 +260,13 @@ public class MonAnController implements Initializable {
    }
      private void setCellValueTable()
     {
-        tblMonAn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                
-               MonAn ma= tblMonAn.getItems().get(tblMonAn.getSelectionModel().getSelectedIndex());
-                 Postion=ma.getMaLoai();
-                 cbo.setValue(ma.getNhom());
-                 txtTenLoai.setText(ma.getTenLoai());
-                  btnXoa.setDisable(false);
-                  btnSua.setDisable(false);
-            }
+        tblMonAn.setOnMouseClicked((MouseEvent event) -> {
+            MonAn ma= tblMonAn.getItems().get(tblMonAn.getSelectionModel().getSelectedIndex());
+            Postion=ma.getMaLoai();
+            cbo.setValue(ma.getNhom());
+            txtTenLoai.setText(ma.getTenLoai());
+            btnXoa.setDisable(false);
+            btnSua.setDisable(false);
         });
        
     }

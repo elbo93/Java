@@ -10,35 +10,23 @@ package Model;
  * @author Dell
  */
 public class GoiMon {
-    private int MaThucDon;
+    
     private String ThucDon;
     private int DonGia;
     private int SoLuong;
-    public GoiMon(int MaThucDon, String ThucDon,int DonGia,int SoLuong)
+    private int Id;
+    private int MaSoBan;
+    public GoiMon(int id,int MaSoBan, String ThucDon,int DonGia,int SoLuong)
     {
-        this.MaThucDon=MaThucDon;
+        this.MaSoBan=MaSoBan;
+        this.Id=id;
+     
         this.ThucDon=ThucDon;
         this.SoLuong=SoLuong;
         this.DonGia=DonGia;
     }
 
-    /**
-     * @return the MaThucDon
-     */
-    public int getMaThucDon() {
-        return MaThucDon;
-    }
-
-    /**
-     * @param MaThucDon the MaThucDon to set
-     */
-    public void setMaThucDon(int MaThucDon) {
-        this.MaThucDon = MaThucDon;
-    }
-
-    /**
-     * @return the ThucDon
-     */
+  
     public String getThucDon() {
         return ThucDon;
     }
@@ -76,5 +64,33 @@ public class GoiMon {
      */
     public void setSoLuong(int SoLuong) {
         this.SoLuong = SoLuong;
+    }
+
+    /**
+     * @return the Id
+     */
+    public int getId() {
+        return Id;
+    }
+
+    /**
+     * @param Id the Id to set
+     */
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    /**
+     * @return the MaSoBan
+     */
+    public int getMaSoBan() {
+        return MaSoBan;
+    }
+
+    /**
+     * @param MaSoBan the MaSoBan to set
+     */
+    public void setMaSoBan(int MaSoBan) {
+        this.MaSoBan = MaSoBan;
     }
 }

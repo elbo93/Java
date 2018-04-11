@@ -129,7 +129,7 @@ public class HoaDonController implements Initializable {
         ColTGLap.setCellValueFactory(new PropertyValueFactory<>("ThoiGianLap"));
         ColMSBan.setCellValueFactory(new PropertyValueFactory<>("MaSoBan"));
         ColSoKhach.setCellValueFactory(new PropertyValueFactory<>("SoKhach"));
-        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("MaNVlap"));
+        ColNguoiLap.setCellValueFactory(new PropertyValueFactory<>("HoTen"));
         ColTongTien.setCellValueFactory(new PropertyValueFactory<>("TongTien"));
 
     }
@@ -140,7 +140,7 @@ public class HoaDonController implements Initializable {
         rs = pst.executeQuery();
 
         while (rs.next()) {
-            data.add(new HoaDon(rs.getInt(1), rs.getDate(2), rs.getInt(3), rs.getInt(4), rs.getInt(5),rs.getFloat(6)));
+            data.add(new HoaDon(rs.getInt(1), rs.getDate(2), rs.getInt(3), rs.getInt(4), rs.getInt(5),rs.getFloat(6),rs.getString(7)));
         }
         TblDanhSachHoaDon.setItems(data);
     }
@@ -153,7 +153,7 @@ public class HoaDonController implements Initializable {
       }
        private void LoadCTHoaDon(int pos) throws SQLException {
         dataHD.clear();
-        pst = con.prepareStatement("select * from ChiTietHD where SoHD=?");
+        pst = con.prepareStatement("select * from CTHD where SoHD=?");
         pst.setInt(1, pos);
         rs = pst.executeQuery();
        
@@ -210,10 +210,6 @@ public class HoaDonController implements Initializable {
                return true;
            }
              String   lowerCaseFilter=newValue.toLowerCase();
-//             if(nv.getSoHD().contains(newValue))
-//             {
-//                 return true;
-//             }
              int a=nv.getSoHD();
             
             if( Integer.toString(a).contains(newValue))
@@ -221,10 +217,6 @@ public class HoaDonController implements Initializable {
              {
                  return true;
              }
-//             if( nv.getTenDN().contains(newValue))   
-//             {
-//                 return true;
-//             }        
                return false;
            });
            });
